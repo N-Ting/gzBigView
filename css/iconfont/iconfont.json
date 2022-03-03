@@ -1,0 +1,191 @@
+{
+  "id": "3190887",
+  "name": "大屏",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "广州起重机械大屏图标",
+  "glyphs": [
+    {
+      "icon_id": "27926432",
+      "name": "监控",
+      "font_class": "jiankong",
+      "unicode": "e61d",
+      "unicode_decimal": 58909
+    },
+    {
+      "icon_id": "27878725",
+      "name": "排名2",
+      "font_class": "a-qizhongjidaping169_paiming2",
+      "unicode": "e610",
+      "unicode_decimal": 58896
+    },
+    {
+      "icon_id": "27878741",
+      "name": "排名3",
+      "font_class": "a-qizhongjidaping169_paiming3",
+      "unicode": "e613",
+      "unicode_decimal": 58899
+    },
+    {
+      "icon_id": "27878754",
+      "name": "排名4",
+      "font_class": "a-qizhongjidaping169_paiming4",
+      "unicode": "e61c",
+      "unicode_decimal": 58908
+    },
+    {
+      "icon_id": "27703728",
+      "name": "完成情况（×）mdpi",
+      "font_class": "a-wanchengqingkuangmdpi",
+      "unicode": "e601",
+      "unicode_decimal": 58881
+    },
+    {
+      "icon_id": "27703930",
+      "name": "完成情况（√）mdpi",
+      "font_class": "a-wanchengqingkuangmdpi1",
+      "unicode": "e602",
+      "unicode_decimal": 58882
+    },
+    {
+      "icon_id": "27710809",
+      "name": "作业情况（地图）",
+      "font_class": "tubiao-04",
+      "unicode": "e605",
+      "unicode_decimal": 58885
+    },
+    {
+      "icon_id": "27710821",
+      "name": "在用设备（地图）",
+      "font_class": "tubiao-05",
+      "unicode": "e606",
+      "unicode_decimal": 58886
+    },
+    {
+      "icon_id": "27710855",
+      "name": "今日作业人员",
+      "font_class": "tubiao-03",
+      "unicode": "e607",
+      "unicode_decimal": 58887
+    },
+    {
+      "icon_id": "27711023",
+      "name": "今日作业设备",
+      "font_class": "tubiao-02",
+      "unicode": "e609",
+      "unicode_decimal": 58889
+    },
+    {
+      "icon_id": "27711055",
+      "name": "在用设备",
+      "font_class": "zaiyongshebeimdpi",
+      "unicode": "e60a",
+      "unicode_decimal": 58890
+    },
+    {
+      "icon_id": "27711064",
+      "name": "作业情况mdpi",
+      "font_class": "zuoyeqingkuangmdpi",
+      "unicode": "e60b",
+      "unicode_decimal": 58891
+    },
+    {
+      "icon_id": "27711087",
+      "name": "全部排名",
+      "font_class": "tubiao-06_quanbupaiming",
+      "unicode": "e60c",
+      "unicode_decimal": 58892
+    },
+    {
+      "icon_id": "27725591",
+      "name": "企业统计",
+      "font_class": "a-ziyuan1mdpi",
+      "unicode": "e60d",
+      "unicode_decimal": 58893
+    },
+    {
+      "icon_id": "27697899",
+      "name": "jack",
+      "font_class": "dingshengguochengmdpi",
+      "unicode": "e614",
+      "unicode_decimal": 58900
+    },
+    {
+      "icon_id": "27697939",
+      "name": " detection",
+      "font_class": "jianceguochengmdpi",
+      "unicode": "e615",
+      "unicode_decimal": 58901
+    },
+    {
+      "icon_id": "27697997",
+      "name": "portal-crane",
+      "font_class": "menshiqizhongjimdpi",
+      "unicode": "e616",
+      "unicode_decimal": 58902
+    },
+    {
+      "icon_id": "27698031",
+      "name": "ranking ",
+      "font_class": "paimingicon",
+      "unicode": "e617",
+      "unicode_decimal": 58903
+    },
+    {
+      "icon_id": "27698053",
+      "name": "bridge-crane",
+      "font_class": "qiaoshiqizhongjimdpi",
+      "unicode": "e618",
+      "unicode_decimal": 58904
+    },
+    {
+      "icon_id": "27698090",
+      "name": "lift",
+      "font_class": "shigongshengjiangjimdpi",
+      "unicode": "e619",
+      "unicode_decimal": 58905
+    },
+    {
+      "icon_id": "27700352",
+      "name": "tower-crane",
+      "font_class": "tashiqizhongjimdpi",
+      "unicode": "e61a",
+      "unicode_decimal": 58906
+    },
+    {
+      "icon_id": "27701022",
+      "name": "maintenance",
+      "font_class": "weibaoguochengmdpi",
+      "unicode": "e61b",
+      "unicode_decimal": 58907
+    },
+    {
+      "icon_id": "27697542",
+      "name": "arrows-top",
+      "font_class": "a-jiantoushang",
+      "unicode": "e60e",
+      "unicode_decimal": 58894
+    },
+    {
+      "icon_id": "27697554",
+      "name": "arrows-bottom",
+      "font_class": "a-jiantouxia",
+      "unicode": "e60f",
+      "unicode_decimal": 58895
+    },
+    {
+      "icon_id": "27697635",
+      "name": "install",
+      "font_class": "anzhuangguochengmdpi",
+      "unicode": "e611",
+      "unicode_decimal": 58897
+    },
+    {
+      "icon_id": "27697690",
+      "name": "disa",
+      "font_class": "chaixieguochengmdpi",
+      "unicode": "e612",
+      "unicode_decimal": 58898
+    }
+  ]
+}

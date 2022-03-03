@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数据大屏</title>
+    <script src="../assets/echarts/echarts.min.js"></script>
+    <script type="text/javascript" src="../assets/jquery/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" href="../assets/layui-v2.6.1/layui/css/layui.css">
+<!--    <link rel="stylesheet" href="//at.alicdn.com/t/font_3190887_dagpidf5xer.css">-->
+    <link rel="stylesheet" href="./css/iconfont/iconfont.css">
+    <link rel="stylesheet" href="./bigScreen.css" />
+
+
+</head>
+<body>
+<div class="title">
+    <span class="right-header operation" data-method="area">全市</span>
+        <ul class="pull-down areaDiv">
+            <li class="select-this">全市</li>
+            <li>市站</li>
+            <li>天河区</li>
+            <li>白云区</li>
+            <li>花都区</li>
+            <li>从化区</li>
+            <li>增城区</li>
+            <li>黄浦区</li>
+            <li>越秀区</li>
+            <li>海珠区</li>
+            <li>荔湾区</li>
+            <li>番禺区</li>
+            <li>南沙区</li>
+            <li>空港委</li>
+            <li>开发区</li>
+        </ul>
+    <span style="margin-left: 35px">广州起重机械管理中心</span>
+    <span class="date">2022-02-24</span>
+</div>
+<!--内容区域-->
+        <div class="layui-row container">
+            <div class="left-col">
+               <div class=" view left-top">
+                   <div class="head ">
+                       <span class="left-head">计划作业</span>
+                       <span class="right-head">未来七天</span>
+                   </div>
+<!--                   <div class="workTab">-->
+                       <ul class="tab-ul">
+                           <li class="tab-this" data-index="1">安装</li>
+                           <li data-index="2">检测</li>
+                           <li data-index="3">维保</li>
+                           <li data-index="5">顶升</li>
+                           <li data-index="6">拆卸</li>
+                       </ul>
+                       <!--                   统计图-->
+                       <div id="categoryWork"></div>
+<!--                   </div>-->
+
+               </div>
+                <div class="view left-middle">
+                    <div class="head">
+                        <span class="left-head middle-head">作业过程完成情况</span>
+                        <span class="right-header operation" id="workDay">近七天</span>
+                            <ul class="pull-down">
+                                <li class="select-this">今天</li>
+                                <li>近三天</li>
+                                <li>近七天</li>
+                            </ul>
+                    </div>
+
+
+<!--                    内容-->
+                    <div class="middle-middle">
+                        <table class="layui-table tableWork" id="demo" lay-filter="test">
+                        </table>
+                    </div>
+                </div>
+                <div class="view left-footer">
+                    <div class="head">
+                        <span class="left-head middle-head" id="dateRanking">12月6日评价排名
+                        </span>
+                        <svg class="icon quanbupaiming" aria-hidden="true">
+                            <use xlink:href="#icon-tubiao-06_quanbupaiming"></use>
+                        </svg>
+                        <span class="right-header operation" data-method="company">安装单位</span>
+                            <ul class="pull-down">
+                                <li class="select-this" data-method="unit_type_62">安装单位</li>
+                                <li data-method="unit_type_65">检测单位</li>
+                                <li data-method="unit_type_64">维保单位</li>
+                            </ul>
+                    </div>
+
+<!--                    内容区域-->
+                    <div class="marquee-view">
+                        <div class="marquee">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="middle-col" >
+                <div id="gz"></div>
+                <div class="middle-col-head">
+                    <div class="middle-col-title" id="jrzyTitle">
+                        <div class="middle-col-img">
+                        </div>
+                        <span class="iconfont icon-tubiao-02"></span>
+                        <div class="icon-title">
+                            <span class="icon-data">4305</span>
+                            <span>今日作业（台）</span>
+                        </div>
+                    </div>
+                    <div class="middle-col-title" id="jrzyry">
+                        <div class="middle-col-img">
+                        </div>
+                        <span class="iconfont icon-tubiao-03"></span>
+                        <div class="icon-title">
+                            <span class="icon-data">7562</span>
+                            <span>今日作业人员（人）</span>
+                        </div>
+                    </div>
+                    <div class="middle-col-title" id="zysbTitle" style="display: none">
+                        <div class="middle-col-img">
+                        </div>
+                        <span class="iconfont icon-tubiao-02"></span>
+                        <div class="icon-title">
+                            <span class="icon-data">4305</span>
+                            <span>在用设备（台）</span>
+                        </div>
+                    </div>
+                    <div class="tab">
+                        <div class="div-tab div-title-1">
+                        <span class="iconfont icon-zuoyeqingkuangmdpi icon-blue"></span>
+                        作业情况
+                    </div>
+                        <div class="div-tab div-title">
+                            <span class="iconfont icon-zaiyongshebeimdpi"></span>
+                            在用设备
+                        </div>
+                    </div>
+                </div>
+
+                <div class="middle-col-foot" id="gc">
+                    <div class="middle-col-foot-img">
+                        <div class="foot-head">
+                            <span class="iconfont icon-anzhuangguochengmdpi"></span>
+                            <span>安装过程</span>
+                        </div>
+                        <div class="foot-bottom">
+                            <div class="bottom">
+                                <span class="bottom-title">26</span>
+                                <span>计划</span>
+                            </div>
+                            <div class="bottom">
+                                <span class="bottom-title">26</span>
+                                <span>作业中</span>
+                            </div>
+                            <div class="bottom">
+                                <span class="bottom-title">26</span>
+                                <span>已中止</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="middle-col-foot-img">
+                        <div class="foot-head">
+                            <span class="iconfont icon-jianceguochengmdpi"></span>
+                            <span>检测过程</span>
+                        </div>
+                        <div class="foot-bottom" style="margin: 15px 15px 0;">
+                            <div class="bottom" >
+                                <span class="bottom-title">26</span>
+                                <span>计划</span>
+                            </div>
+                            <div class="bottom">
+                                <span class="bottom-title">26</span>
+                                <span>作业中</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="middle-col-foot-img">
+                        <div class="foot-head">
+                            <span class="iconfont icon-weibaoguochengmdpi"></span>
+                            <span>维保过程</span>
+                        </div>
+                        <div class="foot-bottom" style="margin: 15px 15px 0;"   >
+                            <div class="bottom">
+                                <span class="bottom-title">26</span>
+                                <span>计划</span>
+                            </div>
+                            <div class="bottom">
+                                <span class="bottom-title">26</span>
+                                <span>作业中</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="middle-col-foot-img">
+                        <div class="foot-head">
+                            <span class="iconfont icon-dingshengguochengmdpi"></span>
+                            <span>顶升过程</span>
+                        </div>
+                        <div class="foot-bottom">
+                            <div class="bottom">
+                                <span class="bottom-title">26</span>
+                                <span>计划</span>
+                            </div>
+                            <div class="bottom">
+                                <span class="bottom-title">26</span>
+                                <span>作业中</span>
+                            </div>
+                            <div class="bottom">
+                                <span class="bottom-title">26</span>
+                                <span>已中止</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="middle-col-foot-img">
+                        <div class="foot-head">
+                            <span class="iconfont icon-chaixieguochengmdpi"></span>
+                            <span>拆卸过程</span>
+                        </div>
+                        <div class="foot-bottom">
+                            <div class="bottom">
+                                <span class="bottom-title">26</span>
+                                <span>计划</span>
+                            </div>
+                            <div class="bottom">
+                                <span class="bottom-title">26</span>
+                                <span>作业中</span>
+                            </div>
+                            <div class="bottom">
+                                <span class="bottom-title">26</span>
+                                <span>已中止</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="middle-col-foot" id="useEquipment" style="display: none">
+                    <div class="middle-col-foot-img">
+                        <div class="foot-head">
+                            <span class="iconfont icon-tashiqizhongjimdpi"></span>
+                            <span>塔式起重机</span>
+                        </div>
+                        <div class="foot-use">
+                                826
+                        </div>
+                    </div>
+                    <div class="middle-col-foot-img">
+                        <div class="foot-head">
+                            <span class="iconfont icon-shigongshengjiangjimdpi"></span>
+                            <span>施工升降机</span>
+                        </div>
+                        <div class="foot-use">
+                           625
+                        </div>
+                    </div>
+                    <div class="middle-col-foot-img">
+                        <div class="foot-head">
+                            <span class="iconfont icon-qiaoshiqizhongjimdpi"></span>
+                            <span>门式起重机</span>
+                        </div>
+                        <div class="foot-use">
+                            263
+                        </div>
+                    </div>
+                    <div class="middle-col-foot-img">
+                        <div class="foot-head">
+                            <span class="iconfont icon-menshiqizhongjimdpi"></span>
+                            <span>桥式起重机</span>
+                        </div>
+                        <div class="foot-use">
+                            118
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="right-col">
+                <div class=" view right-top">
+                    <div class="right-head">
+                            <a href="javascript:;" class="active">从业单位</a>
+                            <a href="javascript:;" style="margin-left: 25px">特种人员</a>
+                    </div>
+                    <div class="content" id="companyType" style="display: block;">
+                        <div class="layui-row rowDiv">
+                            <div class="layui-col-md5">
+                                <div class="circle job">
+                                    <span class="iconfont icon-a-ziyuan1mdpi"></span>
+                                    <i><b class="big-circle"></b><b class="dotdot"></b></i>
+                                    <span class="seconds"></span>
+                                    <p class="timeRefSeconds"></p>
+                                </div>
+                            </div>
+                            <div class="layui-col-md7">
+                                <div class="layui-row rowTitle">
+                                    <div class="layui-col-md6" data-method="unit_type_62">
+                                        <i class="circleSign green"></i>
+                                        安拆单位：<span class="circleTitle" id="install">2021</span>
+                                    </div>
+                                    <div class="layui-col-md6" data-method="unit_type_65">
+                                        <i class="circleSign blue"></i>
+                                        检测单位：<span class="circleTitle" id="detection">1835</span>
+                                </div>
+                                    <div class="layui-col-md6" data-method="unit_type_64">
+                                        <i class="circleSign yellow"></i>
+                                        维保单位：<span class="circleTitle" id="maintenance">1835</span>
+                                    </div>
+                                    <div class="layui-col-md6" data-method="unit_type_61">
+                                        <i class="circleSign orange"></i>
+                                        产权单位：<span class="circleTitle" id="property">1835</span>
+                                    </div>
+                            </div>
+                    </div>
+                        </div>
+
+
+                </div>
+                    <div class="content specialDiv">
+                        <div class="layui-row rowDiv">
+                            <div class="layui-col-md5">
+                                <div class="circle special">
+                                    <div class="special-pen">
+                                        <span style="margin-left: 12px">特种人员</span>
+                                        <span class="special-data" id="SpeciaTotal">4520</span>
+                                    </div>
+                                    <i><b class="big-circle"></b><b class="dotdot"></b></i>
+                                    <span class="seconds"></span>
+                                    <p class="timeRefSeconds"></p>
+                                </div>
+                            </div>
+                            <div class="layui-col-md7">
+                                <div class="layui-row rowTitle">
+                                    <div class="layui-col-md6">
+                                    <i class="circleSign green-1"></i>
+                                    安拆工：<span class="circleTitle" id="erectorTotal">2021</span>
+                                </div>
+                                    <div class="layui-col-md6">
+                                        <i class="circleSign purple"></i>
+                                        检测人员：<span class="circleTitle" id="deteTotal">1835</span>
+                                    </div>
+                                    <div class="layui-col-md6">
+                                        <i class="circleSign green"></i>
+                                        司机：<span class="circleTitle" id="driverTotal">1835</span>
+                                    </div>
+                                    <div class="layui-col-md6">
+                                        <i class="circleSign pink"></i>
+                                        维修保养员：<span class="circleTitle" id="mainTotal">1835</span>
+                                    </div>
+                                    <div class="layui-col-md6">
+                                        <i class="circleSign blue-1"></i>
+                                        安全员：<span class="circleTitle" id="safetyTotal">2021</span>
+                                    </div>
+                                    <div class="layui-col-md6">
+                                        <i class="circleSign yellow"></i>
+                                        技术负责人：<span class="circleTitle" id="techTotal">1835</span>
+                                    </div>
+                                    <div class="layui-col-md6">
+                                        <i class="circleSign blue"></i>
+                                        技术员：<span class="circleTitle" id="technicianTotal">1835</span>
+                                    </div>
+                                    <div class="layui-col-md6">
+                                        <i class="circleSign orange"></i>
+                                        信号司索工：<span class="circleTitle" id="riggerTotal">1835</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+                <div class="view left-middle">
+                    <div class="head">
+                        <span class="left-head left-head">实时监控</span>
+                    </div>
+
+                    <!--                    内容-->
+                    <div style="padding: 25px 20px 15px;margin-top: -18px;height: 90%;">
+                        <div class="right-middle-top">
+                            <div class="layui-row">
+                                <div class="layui-col-md5">
+                                    <div class="monitoring">
+                                        <span class="monitoring-aids">已纳入监控设备</span>
+                                        <span class="monitoring-data" id="craneMonitoredTotal">8142</span>
+                                    </div>
+                                </div>
+                                <div class="layui-col-md7">
+                                    <div>
+                                        <div class="monitoring-title" data-method="crane_type_1">
+                                            <span>塔机<span class="shu" style="margin-left: 45px;"><i class="titleData" id="tower">4355</i>台</span></span>
+                                            <span>安装率<i class="titleData" id="towerPercent">45%</i></span>
+                                        </div>
+                                        <div class="layui-progress" lay-filter="tower">
+                                            <div class="layui-progress-bar layui-green" lay-percent="0%"></div>
+                                        </div>
+                                    </div>
+                                    <div class="ju">
+                                        <div class="monitoring-title" data-method="crane_type_2">
+                                            <span>升降机 <span class="shu"><i class="titleData" id="lift">4355</i>台</span></span>
+                                            <span>安装率<i class="titleData" id="liftPercent">45%</i></span>
+                                        </div>
+                                        <div class="layui-progress" lay-filter="lift">
+                                            <div class="layui-progress-bar layui-yellow" lay-percent="45%"></div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="monitoring-title" data-method="">
+                                            <span>在线 <span class="shu" style="margin-left: 45px;"><i class="titleData" id="onLine">4355</i>台</span></span>
+                                            <span>在线<i class="titleData" id="onLinePercent">45%</i></span>
+                                        </div>
+                                        <div class="layui-progress" lay-filter="onLine">
+                                            <div class="layui-progress-bar layui-green-1" lay-percent="45%"></div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                        </div>
+                            <div class="zy">
+                                <div class="zczy img-zy">
+                                    <span class="zy-title">今日正常作业<i class="zy-data" id="zyTotal">25101</i>次</span>
+                                </div>
+                                <div class="bgfzy img-zy">
+                                    <span class="zy-title">今日不规范作业<i class="zy-data" id="bzyTotal">2014</i>次</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="view left-footer">
+                    <div class="head">
+                        <span class="left-head middle-head">业务办理情况</span>
+                        <span class="right-header operation">近七天</span>
+                    </div>
+                    <div class="pull-down">
+                        <ul>
+                            <li class="select-this">安装单位</li>
+                            <li>检测单位</li>
+                            <li>维保单位</li>
+                        </ul>
+                    </div>
+                    <!--                    内容区域-->
+                    <div class="middle-middle">
+                        <table class="layui-table tableWork" id="yw" lay-filter="test">
+                        </table>
+                    </div>
+                </div>
+        </div>
+<script src="../css/iconfont/iconfont.js"></script>
+<script type="text/javascript" src="../assets/layui-v2.6.1/layui/layui.js"></script>
+<script type="text/javascript" src="../js/layuiUtil.js" ></script>
+<script src="../bigScreenHtml/bigScreen.js"></script>
+</body>
+</html>
